@@ -1,15 +1,27 @@
+let volume = 10;
+var volumeDisplay = document.getElementById('volume');
+function displayVolume() {
+    volumeDisplay.textContent = volume;
+}
 
-// state
+const volumeUp = document.getElementById('vol-up');
+const volumeDown = document.getElementById('vol-down');
 
+volumeUp.addEventListener('click', () => {
+    volume++;
+    correctVolume();
+    displayVolume();
+});
 
-// component
-    // define and grab DOM elements
-    // display functions
-    // subscribe to events
-        // event handlers - what needs to happen?
-        // logic and calculations
-        // state update
-        // re-display components
+volumeDown.addEventListener('click', () => {
+    volume--;
+    correctVolume();
+    displayVolume();
+});
 
+function correctVolume() {
+    if (volume < 0) volume = 0;
+    if (volume > 20) volume = 20;
+}
 
-// page load actions
+displayVolume();
